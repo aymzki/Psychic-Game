@@ -2,19 +2,20 @@
 
 This game has the user guess a letter, and if it matches with the computer's letter guess they win. They will get 10 attempts. The game will refresh after the attempts.
 
-##Motivation
+## Motivation
 
 Assigment in Coding Bootcamp; testing out skills and knowledge.
 
-##Built With
+## Built With
 
-Javascript and HTML
+*Javascript 
+*HTML
 
-##Credits
+## Credits
 
 Penn LPS Coding Bootcamp
 
-##License
+## License
 
 &copy; Alissa Yamazaki
 
