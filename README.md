@@ -1,6 +1,6 @@
 # Psychic Game
 
-A simple guessing game mae using Javascript.
+A simple guessing game made using Javascript.
 
 
 ## How It Works
