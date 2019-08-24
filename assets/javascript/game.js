@@ -15,48 +15,45 @@ var guessesLeft = 10;
 var guessesMade = [];
 
 // This function is run whenever the user presses a key.
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
 
     //Determines which key was pressed.
     var userGuess = event.key;
     //Records letter pressed by user
     guessesMade.push(userGuess);
-    
+    console.log(guessesMade);
+
     //Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+
     //If user guess matches computer guess, a point is added to youWin 
-    //guesses tally restarts
+    //Guesses made also clears
+
     if (userGuess === computerGuess) {
         youWin++;
-        guessesLeft = 9; 
+        guessesLeft = 9;
+        guessesMade = [];
     }
-
 
     else {
-        guessesLeft --;
+        guessesLeft--;
     }
 
-     //If the guesses remaining equals 0, you lose. Losses tally increases by one, and the points restart.
-     if (guessesLeft === 0) {
+    //If the guesses remaining equals 0, you lose. Losses tally increases by one, and the points restart. 
+    //Guesses made also clears
+    if (guessesLeft === 0) {
         youLose++;
-        guessesLeft = 12;
-      }
+        guessesLeft = 9;
+        guessesMade = [];
+    }
 
-      
-      var winsText = document.getElementById("wins");
-      var lossesText = document.getElementById("youLose");
-      var guessesLeftText = document.getElementById("guessesLeft");
-      var guessesMadeText = document.getElementById("guessesMade");
+    var winsText = document.getElementById("wins");
+    var lossesText = document.getElementById("youLose");
+    var guessesLeftText = document.getElementById("guessesLeft");
+    var guessesMadeText = document.getElementById("guessesMade");
 
-      winsText.textContent = "Wins: " + youWin;
-      lossesText.textContent = "Losses: " + youLose;
-      guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
-      guessesMadeText.textContent = "Guesses So Far: " + guessesMade;
-     
-     
-
-      
-
-      
-     
-};
+    winsText.textContent = "Wins: " + youWin;
+    lossesText.textContent = "Losses: " + youLose;
+    guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
+    guessesMadeText.textContent = "Guesses So Far: " + guessesMade;
+}
