@@ -33,6 +33,7 @@ document.onkeyup = function (event) {
         youWin++;
         guessesLeft = 9;
         guessesMade = [];
+        computerGuess = letters[Math.floor(Math.random() * letters.length)];
     }
 
     else {
@@ -45,6 +46,7 @@ document.onkeyup = function (event) {
         youLose++;
         guessesLeft = 9;
         guessesMade = [];
+        computerGuess = letters[Math.floor(Math.random() * letters.length)];
     }
 
     var winsText = document.getElementById("wins");
