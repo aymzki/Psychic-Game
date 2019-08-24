@@ -25,6 +25,7 @@ document.onkeyup = function (event) {
 
     //Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    console.log(computerGuess);
 
     //If user guess matches computer guess, a point is added to youWin 
     //Guesses made also clears
@@ -33,7 +34,6 @@ document.onkeyup = function (event) {
         youWin++;
         guessesLeft = 9;
         guessesMade = [];
-        computerGuess = letters[Math.floor(Math.random() * letters.length)];
     }
 
     else {
@@ -46,7 +46,6 @@ document.onkeyup = function (event) {
         youLose++;
         guessesLeft = 9;
         guessesMade = [];
-        computerGuess = letters[Math.floor(Math.random() * letters.length)];
     }
 
     var winsText = document.getElementById("wins");
