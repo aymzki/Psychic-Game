@@ -10,17 +10,53 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //Other variables include wins, losses, guesses remaining
 var youWin = 0;
 var youLose = 0;
-var guessesLeft = 5;
+var guessesLeft = 10;
 //guessesMade is an array to hold letters
 var guessesMade = [];
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
-    // Determines which key was pressed.
+    //Determines which key was pressed.
     var userGuess = event.key;
-
-    // Randomly chooses a choice from the options array. This is the Computer's guess.
-    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    //Records letter pressed by user
+    guessesMade.push(userGuess);
     
+    //Randomly chooses a choice from the options array. This is the Computer's guess.
+    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    //If user guess matches computer guess, a point is added to youWin 
+    //guesses tally restarts
+    if (userGuess === computerGuess) {
+        youWin++;
+        guessesLeft = 9; 
+    }
+
+
+    else {
+        guessesLeft --;
+    }
+
+     //If the guesses remaining equals 0, you lose. Losses tally increases by one, and the points restart.
+     if (guessesLeft === 0) {
+        youLose++;
+        guessesLeft = 12;
+      }
+
+      
+      var winsText = document.getElementById("wins");
+      var lossesText = document.getElementById("youLose");
+      var guessesLeftText = document.getElementById("guessesLeft");
+      var guessesMadeText = document.getElementById("guessesMade");
+
+      winsText.textContent = "Wins: " + youWin;
+      lossesText.textContent = "Losses: " + youLose;
+      guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
+      guessesMadeText.textContent = "Guesses So Far: " + guessesMade;
+     
+     
+
+      
+
+      
+     
 };
